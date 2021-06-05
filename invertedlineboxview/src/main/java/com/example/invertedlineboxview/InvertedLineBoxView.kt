@@ -44,12 +44,12 @@ fun Canvas.drawInvertedLineBox(scale : Float, w : Float, h : Float, paint : Pain
     save()
     translate(w / 2, h / 2)
     rotate(rot * sf4)
-    drawLine(0f, -upSize / 2, 0f, upSize / 2, paint)
+    drawLine(0f, -upSize, 0f, upSize, paint)
     for (j in 0..1) {
         save()
         scale(1f - 2 * j, 1f - 2 * j)
-        drawLine(0f, size / 2, -(lSize) * sf2, size / 2, paint)
-        drawRect(RectF(-lSize, size / 2 + (-size / 2) * sf3, 0f, size / 2), paint)
+        drawLine(0f, size, -(lSize) * sf2, size, paint)
+        drawRect(RectF(-lSize, size + (-size / 2) * sf3, 0f, size), paint)
         restore()
     }
     restore()
