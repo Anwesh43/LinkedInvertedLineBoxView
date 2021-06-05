@@ -215,4 +215,13 @@ class InvertedLineBoxView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : InvertedLineBoxView {
+            val view : InvertedLineBoxView = InvertedLineBoxView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
