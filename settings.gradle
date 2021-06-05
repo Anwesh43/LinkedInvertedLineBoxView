@@ -1,0 +1,3 @@
+include ':invertedlineboxview'
+include ':app'
+rootProject.name = "LinkedInvertedLineBoxView"
