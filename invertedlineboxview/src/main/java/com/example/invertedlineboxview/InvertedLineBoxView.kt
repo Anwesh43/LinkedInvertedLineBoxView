@@ -190,4 +190,27 @@ class InvertedLineBoxView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : InvertedLineBoxView) {
+
+        private val animator : Animator = Animator(view)
+        private val ilb : InvertedLineBox = InvertedLineBox(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            ilb.draw(canvas, paint)
+            animator.animate {
+                ilb.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            ilb.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
